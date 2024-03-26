@@ -1,0 +1,5 @@
+Fade 9
+Loe 10
+Kopre 4
+Firma 2
+Kole 2
