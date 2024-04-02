@@ -6,6 +6,4 @@ class MyPlane extends Plane {
     }
 }
 
-// TODO: Implement additional methods or properties later
-
 module.exports = MyPlane;
