@@ -1,5 +1,6 @@
 const BrowserManager = require('../BrowserManager');
 const CompareItemsPage = require('../pages/CompareItemsPage');
+const Logger = require('../Logger');
 
 describe('Добавление товаров в сравнение', () => {
     let browser;
@@ -54,7 +55,7 @@ describe('Добавление товаров в сравнение', () => {
             await page.clickGoToCompareButton();
             await browser.sleep(1000);
 
-            console.log('Товары успешно добавлены в сравнение!');
+            Logger.log('Товары успешно добавлены в сравнение!');
         } catch (error) {
             console.error('Произошла ошибка:', error);
         }

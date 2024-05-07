@@ -1,5 +1,6 @@
 const BrowserManager = require('../BrowserManager');
 const ChangeCountPage = require('../pages/ChangeCountPage');
+const Logger = require('../Logger');
 
 describe('Изменение количества товара в корзине', () => {
     let browser;
@@ -39,7 +40,7 @@ describe('Изменение количества товара в корзине
             await page.clickPlusButton();
             await browser.sleep(3000);
 
-            console.log('Изменение количества товара в корзине!');
+            Logger.log('Изменение количества товара в корзине!');
         } catch (error) {
             console.error('Произошла ошибка:', error);
         }

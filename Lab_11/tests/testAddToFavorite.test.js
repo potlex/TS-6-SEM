@@ -1,5 +1,6 @@
 const BrowserManager = require('../BrowserManager');
 const AddToFavoritePage = require('../pages/AddToFavoritePage');
+const Logger = require('../Logger');
 
 describe('Добавление товара в избранное', () => {
     let browser;
@@ -33,7 +34,7 @@ describe('Добавление товара в избранное', () => {
             await page.clickAddToFavoriteButton();
             await browser.sleep(1000);
 
-            console.log('Товар успешно добавлен в избранное!');
+            Logger.log('Товар успешно добавлен в избранное!');
         } catch (error) {
             console.error('Произошла ошибка:', error);
         }

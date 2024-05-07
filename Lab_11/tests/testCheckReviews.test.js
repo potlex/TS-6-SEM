@@ -1,4 +1,5 @@
 const BrowserManager = require('../BrowserManager');
+const Logger = require('../Logger');
 const ReadReviewsPage = require('../pages/ReadReviewsPage');
 
 describe('Просмотр отзывов о товаре', () => {
@@ -30,7 +31,7 @@ describe('Просмотр отзывов о товаре', () => {
             await page.clickCheckReviewsButton();
             await browser.sleep(3000);
 
-            console.log('Отзывы о товаре успешно открыты!');
+            Logger.log('Отзывы о товаре успешно открыты!');
         } catch (error) {
             console.error('Произошла ошибка:', error);
         }

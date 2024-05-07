@@ -1,8 +1,7 @@
 const BrowserManager = require('../BrowserManager');
-const RemoveFromCartPage = require('../pages/RemoveFromCartPage');
-const Logger = require('../Logger');
+const AddToCart = require('../pages/AddToCart');
 
-describe('Удаление товара из корзины', () => {
+describe('Добавление товара в корзину', () => {
     let browser;
 
     beforeAll(() => {
@@ -13,14 +12,17 @@ describe('Удаление товара из корзины', () => {
         await browser.quit();
     });
 
-    test('Удаление товара из корзины', async () => {
-        const page = new RemoveFromCartPage(browser);
+    test('Добавление товара в корзину', async () => {
+        const page = new AddToCart(browser);
         try {
             await page.open('https://mile.by/');
             await browser.sleep(3000);
 
             await page.clickAnonsWrapItem();
             await browser.sleep(5000);
+
+            await page.clickPopupCloseButton();
+            await browser.sleep(1000);
 
             await page.clickRejectCookieButton();
             await browser.sleep(3000);
@@ -31,7 +33,7 @@ describe('Удаление товара из корзины', () => {
             await page.clickGoToCartButton();
             await browser.sleep(3000);
 
-            Logger.log('Товар успешно удалён из корзины!');
+            console.log('Товар успешно добавлен в корзину!');
         } catch (error) {
             console.error('Произошла ошибка:', error);
         }

@@ -1,5 +1,6 @@
 const BrowserManager = require('../BrowserManager');
 const SaveStateCartPage = require('../pages/SaveStateCartPage');
+const Logger = require('../Logger');
 
 describe('Сохранение состояния корзины', () => {
     let browser;
@@ -64,7 +65,7 @@ describe('Сохранение состояния корзины', () => {
             const currentURLs = await browser.driver.getCurrentUrl();
             expect(currentURLs).toBe('https://mile.by/personal/');
 
-            console.log('Товар успешно удалён из корзины!');
+            Logger.log('Товар успешно удалён из корзины!');
         } catch (error) {
             console.error('Произошла ошибка:', error);
         }

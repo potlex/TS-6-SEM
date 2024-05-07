@@ -1,5 +1,6 @@
 const BrowserManager = require('../BrowserManager');
 const LoginPage = require('../pages/LoginPage');
+const Logger = require('../Logger');
 
 describe('Вход пользователя', () => {
     let browser;
@@ -26,7 +27,7 @@ describe('Вход пользователя', () => {
 
             const currentURL = await browser.driver.getCurrentUrl();
             expect(currentURL).toBe('https://mile.by/personal/');
-            console.log('Пользователь успешно вошел на сайт');
+            Logger.log('Пользователь успешно вошел на сайт');
         } catch (error) {
             console.error('Произошла ошибка:', error);
         }

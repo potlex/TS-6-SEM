@@ -1,5 +1,6 @@
 const BrowserManager = require('../BrowserManager');
 const SearchPage = require('../pages/SearchPage');
+const Logger = require('../Logger');
 
 describe('Проверка поиска товара на mile.by', () => {
     let browser;
@@ -18,7 +19,7 @@ describe('Проверка поиска товара на mile.by', () => {
             await page.open('https://mile.by/');
             await page.searchForItem('корзина');
             const searchResultsCount = await page.getSearchResultsCount();
-            console.log('Количество результатов поиска:', searchResultsCount);
+            Logger.log('Количество результатов поиска:', searchResultsCount);
         } catch (error) {
             console.error('Произошла ошибка:', error);
         }

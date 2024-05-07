@@ -1,4 +1,5 @@
 const { Builder, By, Key, until } = require('selenium-webdriver');
+const Logger = require('./Logger');
 
 class BrowserManager {
     constructor() {
@@ -14,32 +15,32 @@ class BrowserManager {
     }
 
     async open(url) {
-        console.log('Открытие страницы:', url);
+        Logger.log('Открытие страницы:', url);
         await this.driver.get(url);
     }
 
     async findElement(locator) {
-        console.log('Поиск элемента:', locator);
+        Logger.log('Поиск элемента:', locator);
         return await this.driver.findElement(locator);
     }
 
     async findElements(locator) {
-        console.log('Поиск элементов:', locator);
+        Logger.log('Поиск элементов:', locator);
         return await this.driver.findElements(locator);
     }
 
     async click(element) {
-        console.log('Клик по элементу:', element);
+        Logger.log('Клик по элементу:', element);
         await element.click();
     }
 
     async sendKeys(element, keys) {
-        console.log('Ввод текста:', keys);
+        Logger.log('Ввод текста:', keys);
         await element.sendKeys(keys);
     }
 
     async waitForElement(locator, timeout) {
-        console.log('Ожидание элемента:', locator);
+        Logger.log('Ожидание элемента:', locator);
         await this.driver.wait(until.elementLocated(locator), timeout);
     }
 
